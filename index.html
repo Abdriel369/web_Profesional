@@ -3,354 +3,809 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio Profesional | Abdriel Mendiola</title>
+  <title>Abdriel Mendiola Aragon | Portafolio Profesional · IA aplicada y Backend</title>
+
+  <meta name="description" content="Portafolio de Abdriel Mendiola Aragon, estudiante de Ingeniería en Sistemas Computacionales especializado en IA aplicada: LLM locales, RAG, visión artificial y backend con Python y Java. Busco residencia profesional." />
+  <meta name="author" content="Abdriel Mendiola Aragon" />
+  <meta name="theme-color" content="#f6f5fb" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Abdriel Mendiola Aragon | Portafolio Profesional" />
+  <meta property="og:description" content="IA aplicada, visión artificial y backend. Proyectos con LLM locales, YOLO, OpenCV y Docker. Disponible para residencia profesional." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/185145381?v=4" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
   <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <!-- CSS Personalizado -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Tema aplicado antes del primer pintado para evitar parpadeo -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      } catch (e) { /* sin localStorage */ }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abdriel Mendiola Aragon",
+    "jobTitle": "Estudiante de Ingeniería en Sistemas Computacionales",
+    "email": "mailto:abdrielmendiola39@gmail.com",
+    "url": "https://github.com/Abdriel369",
+    "sameAs": [
+      "https://github.com/Abdriel369",
+      "https://www.linkedin.com/in/abdriel-mendiola-b0ba00384"
+    ],
+    "knowsAbout": ["Inteligencia Artificial", "Visión artificial", "Python", "Java", "Docker", "PostgreSQL"]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#perfil">Saltar al contenido</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#inicio">
-      <i class="bi bi-cpu-fill"></i> Abdriel Mendiola
-    </a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <div class="theme-switch">
-      <span class="theme-label" id="themeText">Modo Claro</span>
-      <button class="theme-btn" onclick="toggleTheme()" aria-label="Cambiar tema">
-        <i class="bi bi-sun-fill" id="themeIcon"></i>
-      </button>
-    </div>
-  </div>
-</nav>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <span class="brand-mark"><i class="bi bi-cpu-fill"></i></span>
+        <span class="brand-text">Abdriel Mendiola</span>
+      </a>
 
-<!-- HERO -->
-<section id="inicio" class="hero">
-  <div class="container">
-    <div class="hero-content text-center">
-      <div class="profile-container" data-aos="fade-up" data-aos-duration="1000">
-        <img src="https://avatars.githubusercontent.com/u/185145381?v=4"
-             class="profile-img" 
-             alt="Abdriel Mendiola"
-             onerror="this.src='https://via.placeholder.com/200'">
+      <div class="d-flex align-items-center gap-2 order-lg-3">
+        <button class="theme-btn" id="themeBtn" type="button" onclick="toggleTheme()"
+                aria-label="Cambiar tema" aria-pressed="false">
+          <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        </button>
+        <span class="theme-label d-none d-xl-inline" id="themeText">Modo Claro</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
 
-      <h1 data-aos="fade-up" data-aos-delay="200">Abdriel Mendiola Aragon</h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="300">Ingeniería, Automatización e Inteligencia Artificial</p>
-      <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
-        Especializado en la integración de modelos de IA (Ollama, Hugging Face), automatización de procesos, gestión de bases de datos (SQL Server, MongoDB) y despliegue de infraestructura en servidores con Docker.
-      </p>
-      
-      <div class="badge-container" data-aos="fade-up" data-aos-delay="500">
-        <span class="badge-custom">Ollama / Hugging Face</span>
-        <span class="badge-custom">Machine & Deep Learning</span>
-        <span class="badge-custom">SQL Server / MongoDB</span>
-        <span class="badge-custom">Docker / Linux Servers</span>
-        <span class="badge-custom">Python</span>
-        <span class="badge-custom">Flutter / Java</span>
-        <span class="badge-custom">English (Practicing)</span>
+      <div class="collapse navbar-collapse order-lg-2" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacion">Formación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+          <li class="nav-item"><a class="nav-link nav-cv" href="assets/Abdriel-Mendiola-Aragon-CV.pdf" download="Abdriel-Mendiola-Aragon-CV.pdf">
+            <i class="bi bi-download" aria-hidden="true"></i> CV
+          </a></li>
+          <li class="nav-item"><a class="nav-link nav-cta" href="#contacto">Contacto</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-  
-  <a href="#perfil" class="scroll-down">
-    <i class="bi bi-chevron-down"></i>
-  </a>
-</section>
+  </nav>
 
-<!-- PERFIL -->
-<section id="perfil" class="py-5">
-  <div class="container">
-    <div class="section-title" data-aos="fade-up">
-      <h2>Perfil Profesional</h2>
-      <p class="section-subtitle">
-        Perfil técnico orientado al desarrollo de soluciones con IA, infraestructura en servidores, bases de datos y automatización.
-      </p>
-    </div>
-    
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="card p-5" data-aos="fade-up" data-aos-delay="200">
-          <div class="row align-items-center">
-            <div class="col-md-4 text-center mb-4 mb-md-0">
-              <div class="card-icon">
-                <i class="bi bi-robot"></i>
-              </div>
-              <h4 class="mt-3">Sobre Mí</h4>
-              <p class="text-muted small">Ingeniería & Despliegue de IA</p>
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="row align-items-center g-5 hero-content">
+          <div class="col-lg-7 text-center text-lg-start">
+            <span class="pill-availability" data-aos="fade-up">
+              <span class="dot"></span> Disponible para residencia profesional
+            </span>
+
+            <h1 data-aos="fade-up" data-aos-delay="80">Abdriel Mendiola Aragon</h1>
+
+            <p class="hero-role" data-aos="fade-up" data-aos-delay="140">
+              Ingeniería en Sistemas Computacionales ·
+              <span class="text-gradient">IA aplicada y backend</span>
+            </p>
+
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+              Construyo soluciones con modelos de lenguaje ejecutados en local (Ollama, Qwen2.5),
+              RAG sobre bases de conocimiento, visión artificial (YOLO, OpenCV, MediaPipe) y
+              servicios backend con Python y Java. Busco una
+              <strong>residencia profesional</strong> con disponibilidad total y abierto a
+              reubicarme donde esté el equipo.
+            </p>
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="260">
+              <a href="#proyectos" class="btn btn-primary-custom">
+                <i class="bi bi-folder2-open" aria-hidden="true"></i> Ver proyectos
+              </a>
+              <a href="assets/Abdriel-Mendiola-Aragon-CV.pdf" class="btn btn-ghost-custom"
+                 download="Abdriel-Mendiola-Aragon-CV.pdf">
+                <i class="bi bi-download" aria-hidden="true"></i> Descargar CV
+              </a>
+              <a href="#contacto" class="btn btn-link-custom">
+                Contacto <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
-            <div class="col-md-8">
+
+            <ul class="hero-facts" data-aos="fade-up" data-aos-delay="320">
+              <li><i class="bi bi-folder2-open" aria-hidden="true"></i> 5 proyectos con código y documentación</li>
+              <li><i class="bi bi-mortarboard" aria-hidden="true"></i> Ing. en Sistemas Computacionales · titulación 2027</li>
+              <li><i class="bi bi-signpost-split" aria-hidden="true"></i> Abierto a reubicación por la residencia</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="hero-portrait" data-aos="zoom-in" data-aos-delay="180">
+              <div class="portrait-ring" aria-hidden="true"></div>
+              <img src="https://avatars.githubusercontent.com/u/185145381?v=4"
+                   class="profile-img"
+                   alt="Fotografía de Abdriel Mendiola Aragon"
+                   width="320" height="320" loading="eager"
+                   onerror="this.onerror=null;this.src='assets/avatar-fallback.svg';" />
+
+              <div class="portrait-badge badge-status">
+                <i class="bi bi-briefcase" aria-hidden="true"></i>
+                <span>Residencia profesional</span>
+              </div>
+              <div class="portrait-badge badge-stack">
+                <i class="bi bi-code-slash" aria-hidden="true"></i>
+                <span>Python · Java · Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#perfil" class="scroll-down" aria-label="Bajar a la siguiente sección">
+        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- CIFRAS DEL PERFIL -->
+    <section class="stats-band" aria-label="Cifras del perfil">
+      <div class="container">
+        <div class="stats-card" data-aos="fade-up">
+          <div class="stat">
+            <span class="stat-value" data-count="5">5</span>
+            <span class="stat-label">Proyectos documentados</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" data-count="4">4</span>
+            <span class="stat-label">Participaciones y hackathons</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" data-count="3">3</span>
+            <span class="stat-label">Certificaciones</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2027</span>
+            <span class="stat-label">Titulación prevista</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="perfil" class="section" tabindex="-1">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="eyebrow">01 — Perfil</span>
+          <h2>Perfil Profesional</h2>
+          <p class="section-subtitle">
+            Estudiante de ingeniería con práctica real en inteligencia artificial aplicada,
+            visión por computadora y servicios backend.
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <article class="card card-about">
               <h3 class="mb-3">Hola, soy Abdriel</h3>
-              <p class="mb-3">
-                Soy un estudiante de ingeniería en proceso de titulación enfocado en la <span class="highlight">automatización avanzada</span>, el modelado de datos y la aplicación de <span class="highlight">Machine Learning y Deep Learning</span>.
+              <p>
+                Estudio <span class="highlight">Ingeniería en Sistemas Computacionales</span> en el
+                Instituto Tecnológico de Zacatepec, con especialización orientada a
+                <span class="highlight">Inteligencia Artificial y Ciencia de Datos</span>.
+                Titulación esperada: diciembre de 2027.
               </p>
-              <p class="mb-3">
-                Cuento con experiencia estructurando bases de datos relacionales (<span class="highlight">SQL Server</span>) y no relacionales (<span class="highlight">MongoDB</span>). Actualmente integro modelos de lenguaje y visión (<span class="highlight">Ollama y Hugging Face</span>) desplegados en servidores Linux mediante <span class="highlight">Docker</span>. Aunque puedo desarrollar aplicaciones móviles con Flutter, mi fuerte está en el backend, la infraestructura y los datos.
+              <p>
+                He trabajado en proyectos donde la IA tiene que funcionar de verdad: asistentes
+                conversacionales con modelos de lenguaje ejecutados en local, recuperación de
+                información sobre bases de conocimiento (RAG), visión artificial para detección de
+                objetos y comunicación entre servicios en Python y Java. También tengo nociones de
+                administración de servidores Ubuntu y configuración de redes pequeñas.
+              </p>
+              <p class="mb-0">
+                Fuera del código doy mantenimiento y personalizo software para clientes
+                particulares desde 2022, lo que me ha enseñado a diagnosticar problemas y a
+                explicar soluciones en términos que la otra persona entiende.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="180">
+            <aside class="card card-facts">
+              <h4 class="facts-title"><i class="bi bi-bullseye" aria-hidden="true"></i> Objetivo</h4>
+              <p class="facts-objective">
+                Residencia profesional en áreas de <strong>IA aplicada, ciencia de datos,
+                desarrollo backend o infraestructura</strong>, con disponibilidad total.
+              </p>
+
+              <ul class="facts-list">
+                <li>
+                  <span class="fact-label">Formación</span>
+                  <span class="fact-value">Ing. en Sistemas Computacionales · ITZ</span>
+                </li>
+                <li>
+                  <span class="fact-label">Titulación</span>
+                  <span class="fact-value">Diciembre 2027</span>
+                </li>
+                <li>
+                  <span class="fact-label">Especialización</span>
+                  <span class="fact-value">Inteligencia Artificial y Ciencia de Datos</span>
+                </li>
+                <li>
+                  <span class="fact-label">Idiomas</span>
+                  <span class="fact-value">Español (nativo) · Inglés (A2)</span>
+                </li>
+                <li>
+                  <span class="fact-label">Disponibilidad</span>
+                  <span class="fact-value">Total · abierto a reubicación</span>
+                </li>
+              </ul>
+
+              <a href="#contacto" class="btn btn-primary-custom w-100 mt-2">
+                <i class="bi bi-send" aria-hidden="true"></i> Hablemos
+              </a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section section-alt">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="eyebrow">02 — Proyectos</span>
+          <h2>Lo que he construido</h2>
+          <p class="section-subtitle">
+            Cinco proyectos con el mismo peso. En cada tarjeta encontrarás el problema atendido,
+            lo que construí y las tecnologías que utilicé.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Argonaut / Station Doctor -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="60">
+            <article class="project-card">
+              <div class="project-head">
+                <span class="project-num">01</span>
+                <span class="project-icon icon-space"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i></span>
+                <span class="project-award"><i class="bi bi-trophy" aria-hidden="true"></i> Galactic Problem Solver</span>
+              </div>
+              <p class="project-meta">NASA Space Apps Challenge 2026 · Equipo Argonauta · nov. 2026</p>
+              <h3>Station Doctor (Argonaut)</h3>
+              <p class="project-desc">
+                Prototipo autónomo de monitoreo de salud para astronautas. Un motor de reglas
+                evalúa sueño, fatiga, riesgo cardiovascular y radiación; cuando detecta riesgo
+                consulta cuatro modelos especialistas y devuelve una explicación en lenguaje
+                claro, un protocolo paso a paso y un reporte para el médico de vuelo.
+              </p>
+              <ul class="project-points">
+                <li>Interfaces duales <strong>Crew</strong> y <strong>Watch</strong>, bilingües (ES/EN con i18n.js).</li>
+                <li>Modo degradado cuando un servicio no responde, sin falsas alarmas por sensores.</li>
+                <li>Diseñado como sistema distribuido de tres laptops comunicadas por HTTP.</li>
+              </ul>
+              <ul class="tech-tags">
+                <li>Python</li><li>FastAPI</li><li>SQLite</li><li>Docker Compose</li><li>Render</li><li>i18n.js</li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-mini btn-mini-solid" href="https://argonaut-demo.onrender.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Demo en vivo
+                </a>
+                <a class="btn btn-mini" href="https://github.com/Abdriel369/Argonaut" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github" aria-hidden="true"></i> Código
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Agente escolar -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="120">
+            <article class="project-card">
+              <div class="project-head">
+                <span class="project-num">02</span>
+                <span class="project-icon icon-chat"><i class="bi bi-mic" aria-hidden="true"></i></span>
+                <span class="project-tag">IA conversacional</span>
+              </div>
+              <p class="project-meta">Verano Científico · CENIDET / TecNM · jun. – oct. 2026</p>
+              <h3>Agente Conversacional de Voz y Texto</h3>
+              <p class="project-desc">
+                Asistente que orienta a los aspirantes del Tecnológico de Zacatepec durante su
+                proceso de admisión: carreras disponibles, fechas del examen EVALUATEC, costos,
+                documentación y registro en línea.
+              </p>
+              <ul class="project-points">
+                <li>Se ejecuta <strong>100% en local</strong> con Qwen2.5 servido por Ollama y aceleración por GPU.</li>
+                <li>Panel administrativo para actualizar la base de conocimientos sin intervención técnica.</li>
+                <li>Integración de servicios en Python y Java sobre Docker Compose.</li>
+              </ul>
+              <ul class="tech-tags">
+                <li>Python</li><li>Java</li><li>Qwen2.5</li><li>Ollama</li><li>Docker Compose</li><li>GPU</li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-mini btn-mini-solid" href="https://github.com/Abdriel369/Agente-escolar" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github" aria-hidden="true"></i> Ver repositorio
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Hacka_ARFIX -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="60">
+            <article class="project-card">
+              <div class="project-head">
+                <span class="project-num">03</span>
+                <span class="project-icon icon-vision"><i class="bi bi-cpu" aria-hidden="true"></i></span>
+                <span class="project-tag">Visión artificial</span>
+              </div>
+              <p class="project-meta">Innovatec · may. 2026 – actualidad</p>
+              <h3>Hacka_ARFIX · Inspección y mantenimiento guiado</h3>
+              <p class="project-desc">
+                Sistema de asistencia preventiva y mantenimiento guiado con IA: detección de
+                componentes y defectos en piezas industriales con YOLOv8, conectado a una base de
+                conocimiento para guiar al usuario en el armado, desarmado y diagnóstico de fallas.
+              </p>
+              <ul class="project-points">
+                <li>Pipeline de entrenamiento del modelo y captura de imágenes propio.</li>
+                <li>API REST en Java con PostgreSQL como base de datos del sistema.</li>
+                <li>Despliegue completo de los servicios con Docker Compose.</li>
+              </ul>
+              <ul class="tech-tags">
+                <li>YOLOv8</li><li>Python</li><li>Java</li><li>PostgreSQL</li><li>Docker Compose</li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-mini btn-mini-solid" href="https://github.com/Abdriel369/Hacka_ARFIX" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github" aria-hidden="true"></i> Ver repositorio
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Red_Nilo -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="120">
+            <article class="project-card">
+              <div class="project-head">
+                <span class="project-num">04</span>
+                <span class="project-icon icon-hand"><i class="bi bi-hand-index-thumb" aria-hidden="true"></i></span>
+                <span class="project-tag">Interacción sin contacto</span>
+              </div>
+              <p class="project-meta">Proyecto propio · actualidad</p>
+              <h3>Red_Nilo · Dibujo en tiempo real por gestos</h3>
+              <p class="project-desc">
+                Sistema de dibujo controlado por la mano: un modelo de aprendizaje automático
+                propio reconoce gestos a partir de los puntos de la mano detectados con MediaPipe y
+                los envía por sockets TCP a un lienzo Java Swing que dibuja en tiempo real.
+              </p>
+              <ul class="project-points">
+                <li>Sin mouse y sin teclado: solo la mano frente a la cámara.</li>
+                <li>Puente entre dos lenguajes (Python ↔ Java) mediante sockets TCP.</li>
+                <li>Procesamiento de video con OpenCV y detección de landmarks con MediaPipe.</li>
+              </ul>
+              <ul class="tech-tags">
+                <li>Python</li><li>OpenCV</li><li>MediaPipe</li><li>Java Swing</li><li>Sockets TCP</li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-mini btn-mini-solid" href="https://github.com/Abdriel369/Red_Nilo" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github" aria-hidden="true"></i> Ver repositorio
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6" data-aos="fade-up">
+            <article class="project-card">
+              <div class="project-head">
+                <span class="project-num">05</span>
+                <span class="project-icon icon-game"><i class="bi bi-controller" aria-hidden="true"></i></span>
+                <span class="project-tag">Hackathon</span>
+              </div>
+              <p class="project-meta">PoliHacks · UPIITA – IPN · nov. 2025</p>
+              <h3>Videojuego Educativo del Sistema Solar</h3>
+              <p class="project-desc">
+                Videojuego interactivo construido con Wireframe que enseña a niños el sistema
+                solar, las trayectorias y la mecánica planetaria.
+              </p>
+              <ul class="project-points">
+                <li>Diseño de la experiencia y de la interfaz en Wireframe antes de construir.</li>
+                <li>Contenido educativo: órbitas, trayectorias y mecánica planetaria.</li>
+                <li>Prototipo entregado en el marco de un hackathon (sin repositorio público).</li>
+              </ul>
+              <ul class="tech-tags"><li>Wireframe</li><li>Diseño de interacción</li><li>Trabajo en equipo</li></ul>
+            </article>
+          </div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80">
+            <article class="project-card project-card-compact project-card-cta">
+              <span class="project-icon icon-github"><i class="bi bi-github" aria-hidden="true"></i></span>
+              <h3>Más proyectos en GitHub</h3>
+              <p class="project-desc mb-3">
+                Repositorios de otros trabajos de desarrollo, datos e inteligencia artificial.
+              </p>
+              <a class="btn btn-mini btn-mini-solid" href="https://github.com/Abdriel369?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Explorar repositorios
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="eyebrow">03 — Habilidades</span>
+          <h2>Habilidades Técnicas</h2>
+          <p class="section-subtitle">
+            Tecnologías que he utilizado en proyectos, con el nivel real declarado en mi CV.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-braces" aria-hidden="true"></i></span>
+                <h5 class="card-title">Lenguajes</h5>
+              </div>
+              <p class="card-text">Base de desarrollo para IA, backend y automatización.</p>
+              <ul class="chip-list">
+                <li class="chip">Python</li>
+                <li class="chip">Java</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-cpu" aria-hidden="true"></i></span>
+                <h5 class="card-title">Inteligencia Artificial</h5>
+              </div>
+              <p class="card-text">Modelos y visión por computadora aplicados en proyectos.</p>
+              <ul class="chip-list">
+                <li class="chip">LLM locales (Ollama)</li>
+                <li class="chip">RAG (Flowise, pgvector)</li>
+                <li class="chip">Visión artificial (YOLO, OpenCV, MediaPipe)</li>
+                <li class="chip">Agentes conversacionales</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="180">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-hdd-network" aria-hidden="true"></i></span>
+                <h5 class="card-title">Backend y Datos</h5>
+              </div>
+              <p class="card-text">Servicios y persistencia de información.</p>
+              <ul class="chip-list">
+                <li class="chip">FastAPI</li>
+                <li class="chip">APIs REST</li>
+                <li class="chip">PostgreSQL</li>
+                <li class="chip">SQL</li>
+                <li class="chip chip-muted">NoSQL <span>principiante</span></li>
+                <li class="chip">Ciencia de datos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-server" aria-hidden="true"></i></span>
+                <h5 class="card-title">Servidores y Redes</h5>
+              </div>
+              <p class="card-text">Infraestructura y configuración de red.</p>
+              <ul class="chip-list">
+                <li class="chip">Administración de servidores</li>
+                <li class="chip chip-muted">Ubuntu Server <span>principiante</span></li>
+                <li class="chip">Configuración de redes pequeñas</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></span>
+                <h5 class="card-title">Automatización</h5>
+              </div>
+              <p class="card-text">Integración de procesos con IA.</p>
+              <ul class="chip-list">
+                <li class="chip">Conexión y automatización de procesos con IA mediante Python</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="180">
+            <div class="card skill-card">
+              <div class="skill-card-head">
+                <span class="card-icon"><i class="bi bi-tools" aria-hidden="true"></i></span>
+                <h5 class="card-title">Herramientas</h5>
+              </div>
+              <p class="card-text">Entorno de desarrollo y despliegue.</p>
+              <ul class="chip-list">
+                <li class="chip">Docker</li>
+                <li class="chip">Docker Compose</li>
+                <li class="chip">Flowise</li>
+                <li class="chip">Git</li>
+                <li class="chip">Render</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section id="formacion" class="section section-alt">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="eyebrow">04 — Formación</span>
+          <h2>Formación y Certificaciones</h2>
+          <p class="section-subtitle">
+            Estudios formales y cursos concluidos o en curso.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-7" data-aos="fade-up">
+            <div class="education-list">
+              <article class="card education-card">
+                <div class="edu-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></div>
+                <div>
+                  <span class="edu-date">2022 – 2027</span>
+                  <h3>Ingeniería en Sistemas Computacionales</h3>
+                  <p class="edu-place">Instituto Tecnológico de Zacatepec</p>
+                  <p class="mb-0">
+                    Especialización orientada a Inteligencia Artificial y Ciencia de Datos.
+                    Titulación esperada: <strong>diciembre de 2027</strong>.
+                  </p>
+                </div>
+              </article>
+
+              <article class="card education-card">
+                <div class="edu-icon"><i class="bi bi-pc-display" aria-hidden="true"></i></div>
+                <div>
+                  <span class="edu-date">2019 – 2022</span>
+                  <h3>Técnico en Informática</h3>
+                  <p class="edu-place">C.B.T.a 194</p>
+                </div>
+              </article>
+
+              <article class="card education-card">
+                <div class="edu-icon"><i class="bi bi-translate" aria-hidden="true"></i></div>
+                <div>
+                  <span class="edu-date">Idiomas</span>
+                  <h3>Español · Inglés</h3>
+                  <p class="mb-0">
+                    Español como lengua materna e inglés en nivel <strong>A2</strong>, en práctica
+                    constante.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="120">
+            <div class="card certs-card">
+              <h4 class="certs-title"><i class="bi bi-patch-check" aria-hidden="true"></i> Certificaciones</h4>
+              <ul class="cert-list">
+                <li>
+                  <span class="cert-date">sept. 2025 – actualidad</span>
+                  <strong>Inteligencia Artificial y Productividad</strong>
+                  <span class="cert-issuer">Google · Santander Open Academy</span>
+                </li>
+                <li>
+                  <span class="cert-date">oct. 2024 – actualidad</span>
+                  <strong>Introducción a la Ciencia de Datos</strong>
+                  <span class="cert-issuer">Santander Open Academy</span>
+                </li>
+                <li>
+                  <span class="cert-date">ago. 2024 – actualidad</span>
+                  <strong>Python</strong>
+                  <span class="cert-issuer">Santander Open Academy</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA Y PARTICIPACIONES -->
+    <section id="experiencia" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="eyebrow">05 — Trayectoria</span>
+          <h2>Experiencia y Participaciones</h2>
+          <p class="section-subtitle">
+            Experiencia laboral independiente, programas y competencias en los que he participado.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-lg-10 mx-auto" data-aos="fade-up">
+            <article class="card experience-highlight">
+              <span class="timeline-date">2022 – actualidad</span>
+              <h3>Técnico en Reparación de Laptops y Personalización de Software</h3>
+              <p class="edu-place mb-3">Trabajo independiente</p>
+              <ul class="bullet-list">
+                <li>Reparo y doy mantenimiento a 2–3 laptops al mes, resolviendo fallas de hardware y software para clientes particulares.</li>
+                <li>Instalo sistemas operativos compatibles con el hardware de cada equipo, mejorando su rendimiento y estabilidad.</li>
+                <li>Personalizo software y herramientas según la necesidad del cliente, logrando equipos más rápidos y adaptados a su uso.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <h3 class="subheading" data-aos="fade-up">
+          <i class="bi bi-flag" aria-hidden="true"></i> Participaciones y programas
+        </h3>
+
+        <div class="timeline" data-aos="fade-up" data-aos-delay="80">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">nov. 2026</span>
+              <h4>NASA Space Apps Challenge 2026</h4>
+              <p class="timeline-place">Equipo Argonauta · Station Doctor</p>
+              <p>
+                Reconocimiento <strong>Galactic Problem Solver</strong> por el prototipo de
+                monitoreo de salud para astronautas en misión espacial.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">may. 2026 – actualidad</span>
+              <h4>Innovatec</h4>
+              <p class="timeline-place">Sistema de asistencia preventiva y mantenimiento guiado</p>
+              <p>
+                Detección de componentes con visión artificial y guía de diagnóstico apoyada en
+                una base de conocimiento.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">jun. – oct. 2026</span>
+              <h4>Verano Científico</h4>
+              <p class="timeline-place">CENIDET / TecNM</p>
+              <p>
+                Desarrollo del agente conversacional de voz y texto para aspirantes del Tecnológico
+                de Zacatepec, con modelos de lenguaje ejecutados en local.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">nov. 2025</span>
+              <h4>PoliHacks</h4>
+              <p class="timeline-place">UPIITA – IPN</p>
+              <p>
+                Videojuego educativo del sistema solar desarrollado con Wireframe durante el
+                hackathon.
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- HABILIDADES -->
-<section id="habilidades" class="py-5" style="background: var(--gradient-card);">
-  <div class="container">
-    <div class="section-title" data-aos="fade-up">
-      <h2>Habilidades Técnicas</h2>
-      <p class="section-subtitle">
-        Tecnologías y herramientas que implemento en mis proyectos
-      </p>
-    </div>
-    
-    <div class="row g-4">
-      <!-- Card 1: IA & Automatización -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card p-4 text-center h-100">
-          <div class="card-icon">
-            <i class="bi bi-cpu"></i>
+    <!-- CONTACTO -->
+    <section id="contacto" class="section section-contact">
+      <div class="container">
+        <div class="contact-card" data-aos="fade-up">
+          <span class="eyebrow">06 — Contacto</span>
+          <h2>Busco una residencia profesional</h2>
+          <p class="contact-lead">
+            Si tu equipo trabaja en inteligencia artificial, ciencia de datos, desarrollo backend o
+            infraestructura, con gusto conversamos. Estoy disponible para integrarme a un equipo y
+            aportar desde el primer día.
+          </p>
+
+          <ul class="contact-chips">
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Residencia profesional</li>
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Disponibilidad total</li>
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Abierto a reubicación</li>
+          </ul>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary-custom" href="mailto:abdrielmendiola39@gmail.com">
+              <i class="bi bi-envelope-fill" aria-hidden="true"></i> abdrielmendiola39@gmail.com
+            </a>
+            <button class="btn btn-ghost-custom" type="button" id="copyEmailBtn"
+                    data-email="abdrielmendiola39@gmail.com">
+              <i class="bi bi-clipboard" aria-hidden="true"></i> Copiar correo
+            </button>
+            <a class="btn btn-ghost-custom" href="assets/Abdriel-Mendiola-Aragon-CV.pdf"
+               download="Abdriel-Mendiola-Aragon-CV.pdf">
+              <i class="bi bi-filetype-pdf" aria-hidden="true"></i> Descargar CV
+            </a>
           </div>
-          <h5 class="card-title">IA & Automatización</h5>
-          <p class="card-text mb-4">Modelos de IA y automatización de flujos</p>
-          
-          <div class="mt-3 text-start">
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Ollama / Hugging Face</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Machine & Deep Learning</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Python & Automatización</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
+
+          <div class="contact-icons">
+            <a href="https://github.com/Abdriel369" target="_blank" rel="noopener noreferrer" class="contact-icon">
+              <span class="contact-icon-circle"><i class="bi bi-github" aria-hidden="true"></i></span>
+              <span class="contact-icon-label">GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/abdriel-mendiola-b0ba00384" target="_blank" rel="noopener noreferrer" class="contact-icon">
+              <span class="contact-icon-circle"><i class="bi bi-linkedin" aria-hidden="true"></i></span>
+              <span class="contact-icon-label">LinkedIn</span>
+            </a>
+            <a href="mailto:abdrielmendiola39@gmail.com" class="contact-icon">
+              <span class="contact-icon-circle"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+              <span class="contact-icon-label">Email</span>
+            </a>
           </div>
         </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Card 2: DevOps & Bases de Datos -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card p-4 text-center h-100">
-          <div class="card-icon">
-            <i class="bi bi-database-gear"></i>
-          </div>
-          <h5 class="card-title">Bases de Datos & Servidores</h5>
-          <p class="card-text mb-4">Persistencia de datos e infraestructura</p>
-          
-          <div class="mt-3 text-start">
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>SQL Server (Relacional)</span>
-                <span>82%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="82"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>MongoDB (NoSQL)</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Docker & Servidores Linux</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-mark"><i class="bi bi-cpu-fill" aria-hidden="true"></i></span>
+          <div>
+            <h5 class="mb-0">Abdriel Mendiola Aragon</h5>
+            <p class="mb-0">IA aplicada, visión artificial y backend</p>
           </div>
         </div>
-      </div>
 
-      <!-- Card 3: Desarrollo Complementario -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="card p-4 text-center h-100">
-          <div class="card-icon">
-            <i class="bi bi-code-square"></i>
-          </div>
-          <h5 class="card-title">Desarrollo Complementario</h5>
-          <p class="card-text mb-4">Herramientas y desarrollo multiplataforma</p>
-          
-          <div class="mt-3 text-start">
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Flutter / Apps Móviles</span>
-                <span>60%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="60"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Java & Web (Básico)</span>
-                <span>55%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="55"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Inglés (En práctica constante)</span>
-                <span>55%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress" data-width="55"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <nav class="footer-links" aria-label="Enlaces del pie de página">
+          <a href="#perfil">Perfil</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#formacion">Formación</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <p class="copyright">© <span id="year">2026</span> Abdriel Mendiola Aragon · Hecho con HTML, CSS y JavaScript.</p>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- EXPERIENCIA / TRAYECTORIA -->
-<section id="experiencia" class="py-5">
-  <div class="container">
-    <div class="section-title" data-aos="fade-up">
-      <h2>Trayectoria & Evolución</h2>
-      <p class="section-subtitle">
-        Línea de tiempo detallada de mi formación y aplicación técnica
-      </p>
-    </div>
-    
-    <div class="timeline" data-aos="fade-up" data-aos-delay="200">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="timeline-date">2026 - Actualidad</span>
-          <h4>Proceso de Titulación & Integración de IA</h4>
-          <p>En fase final de titulación. Desarrollo de proyectos de automatización aplicando modelos de Ollama y Hugging Face, con despliegue e integración en servidores.</p>
-        </div>
-      </div>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="timeline-date">2025 - 2026</span>
-          <h4>Automatización & Modelos de Machine/Deep Learning</h4>
-          <p>Enfoque en automatización avanzada de flujos, desarrollo y entrenamiento de modelos de Machine Learning y Deep Learning.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="timeline-date">2024 - 2025</span>
-          <h4>Infraestructura con Docker & Bases de Datos</h4>
-          <p>Dominio de virtualización mediante contenedores Docker, administración de servidores Linux y diseño de bases de datos con SQL Server (relacional) y MongoDB (NoSQL).</p>
-        </div>
-      </div>
+  <div class="toast-msg" id="toast" role="status" aria-live="polite"></div>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="timeline-date">2023 - 2024</span>
-          <h4>Fundamentos de Desarrollo, Java & Móvil</h4>
-          <p>Bases de programación orientada a objetos con Java, fundamentos web y maquetación e implementación de aplicaciones móviles con Flutter.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <div class="section-title" data-aos="fade-up">
-      <h2>Contacto</h2>
-      <p class="section-subtitle">
-        Ponte en contacto para colaborar en proyectos de automatización e IA
-      </p>
-    </div>
-    
-    <div class="contact-section" data-aos="fade-up" data-aos-delay="200">
-      <div class="text-center mb-5">
-        <h3 class="mb-3">¿Interesado en colaborar?</h3>
-        <p class="text-muted">Disponible para proyectos de infraestructura, automatización y soluciones con IA.</p>
-      </div>
-      
-      <div class="contact-icons">
-        <a href="https://github.com/Abdriel369" target="_blank" class="contact-icon">
-          <div class="contact-icon-circle">
-            <i class="bi bi-github"></i>
-          </div>
-          <span class="contact-icon-label">GitHub</span>
-        </a>
-        
-        <a href="https://www.linkedin.com/in/abdriel-mendiola-b0ba00384" target="_blank" class="contact-icon">
-          <div class="contact-icon-circle">
-            <i class="bi bi-linkedin"></i>
-          </div>
-          <span class="contact-icon-label">LinkedIn</span>
-        </a>
-        
-        <a href="mailto:abdrielmendiola39@gmail.com" class="contact-icon">
-          <div class="contact-icon-circle">
-            <i class="bi bi-envelope"></i>
-          </div>
-          <span class="contact-icon-label">Email</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="d-flex align-items-center gap-2 mb-2">
-        <i class="bi bi-cpu-fill fs-5 text-gradient"></i>
-        <h5 class="mb-0">Abdriel Mendiola</h5>
-      </div>
-      <p class="mb-3">Automatización, Inteligencia Artificial & Servidores</p>
-      <p class="copyright">
-        © 2026 Abdriel Mendiola
-      </p>
-    </div>
-  </div>
-</footer>
-
-<!-- Scripts JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/script.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

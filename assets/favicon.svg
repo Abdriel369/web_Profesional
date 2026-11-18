@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Abdriel Mendiola">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="55%" stop-color="#5b21b6"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <path d="M14 44 24.5 20h4L39 44h-4.6l-2.3-5.6H20.9L18.6 44H14zm8.2-9.2h6l-3-7.4-3 7.4z" fill="#fff" opacity=".96"/>
+  <circle cx="47" cy="38" r="4" fill="#67e8f9"/>
+</svg>
